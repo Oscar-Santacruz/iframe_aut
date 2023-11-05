@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  front:
+    image: front
+    env_file:
+      - .env
+    build:
+      context: front-login-v2
+      dockerfile: ./Dockerfile
+    ports:
+      - 5001:5001
+    networks:
+      - compreface-es_default
+
+  api:
+    image: api
+    build:
+      context: ocr-tesseract
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    expose:
+      - 8200
+    networks:
+      - compreface-es_default
+networks:
+  compreface-es_default:
+     external: true
