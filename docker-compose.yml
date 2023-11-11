@@ -11,7 +11,7 @@ services:
     ports:
       - 5001:5001
     networks:
-      - compreface-es_default
+      - compreface-esp_default
 
   api:
     image: api
@@ -23,7 +23,9 @@ services:
     expose:
       - 8200
     networks:
-      - compreface-es_default
+      - compreface-esp_default
 networks:
-  compreface-es_default:
+  compreface-esp_default:
      external: true
+
+     
